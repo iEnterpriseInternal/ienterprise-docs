@@ -1,0 +1,179 @@
+# iEnterprise | ServiceNow Integration Guide
+
+## Native Ticketing Integration  
+### Configuration & Setup Requirements
+
+**CONFIDENTIAL**  
+Prepared by **iEnterprise | Streamline Digital**  [oai_citation:0‡iEnterprise_ServiceNow_Integration_Guide_1.docx](sediment://file_000000002964722fa56e03270462daaf)
+
+---
+
+## What This Is About
+
+This guide walks you through connecting iEnterprise to your ServiceNow instance. The goal is simple: enable store teams to create and track support tickets from **Site Manager** without logging into ServiceNow directly.
+
+We require a small set of details from your team. Once provided, we handle the rest.
+
+- No custom development inside ServiceNow  
+- No workflow changes  
+- Clean, secure connection between systems  
+
+**Typical setup time:** 3–5 business days after credentials and mappings are received.
+
+---
+
+## 1. Connection & Authentication
+
+To establish secure communication with your ServiceNow instance, we need the following:
+
+### Required Details
+
+- **Instance Base URL**  
+  Example: `https://yourcompany.service-now.com`
+
+- **API Username**  
+  Dedicated integration user account
+
+- **API Password**  
+  Password for the integration account
+
+- **Required Roles**  
+  - Incident create/read access  
+  - Attachment access  
+
+### Recommendation
+
+Use a **non-human service account**, not a personal login. A dedicated API user aligned with enterprise security policies avoids disruptions caused by password changes or employee transitions.
+
+---
+
+## 2. API Access Requirements
+
+The integration uses standard ServiceNow REST APIs only.
+
+### Required Permissions
+
+| Action              | Table           | Access Level |
+|---------------------|-----------------|--------------|
+| Create incidents    | `incident`      | Create       |
+| Read incidents      | `incident`      | Read         |
+| Upload attachments  | `sys_attachment`| Create       |
+
+No workflow updates. No scripting. Existing ServiceNow behavior remains unchanged.
+
+---
+
+## 3. Channel Configuration
+
+### Required Change in ServiceNow
+
+Add a new value to the **Channel** dropdown field:
+
+| Field   | New Value     |
+|--------|---------------|
+| Channel| Site Manager  |
+
+### Why This Matters
+
+ServiceNow reporting relies heavily on ticket origin channels such as Phone, Email, or Portal.
+
+Without a dedicated **Site Manager** channel:
+- Tickets appear as generic API traffic
+- Adoption metrics are lost
+- ROI cannot be measured accurately
+
+This is a **single dropdown value change**. It does not affect routing, automation, or workflows, but it preserves clean reporting and visibility.
+
+---
+
+## 4. Category & Subcategory Mapping
+
+Each ServiceNow instance uses unique Category and Subcategory values. To ensure alignment:
+
+### What We Need
+- Exact Category and Subcategory values from your ServiceNow configuration
+
+### Why It Matters
+- Tickets created in iEnterprise align with IT classification standards
+- No misclassified incidents
+- No manual cleanup later
+
+### Format
+- Simple list or export from ServiceNow is sufficient
+
+---
+
+## 5. Ticket Status Mapping
+
+Store teams expect real-time ticket status updates in Site Manager.
+
+To support this, we map your ServiceNow statuses to iEnterprise states using **status names and internal integer IDs**.
+
+### Example Mapping
+
+| Status Name   | Internal Value (Integer ID) |
+|--------------|-----------------------------|
+| New          | (your value)                |
+| In Progress  | (your value)                |
+| On Hold      | (your value)                |
+| Resolved     | (your value)                |
+| Closed       | (your value)                |
+
+Your instance may include additional or differently named states. Share all relevant values and we will handle the mapping.
+
+---
+
+## 6. Store / Location Field Mapping
+
+Retail tickets must be tied to the correct physical store.
+
+### What We Need
+
+- **Store Number Field**  
+  Which ServiceNow field contains the store or location identifier?
+
+- **Field Type**  
+  - Standard Location table reference, or  
+  - Custom field  
+
+This ensures accurate routing and consistent analytics across systems.
+
+---
+
+## What Happens Next
+
+### Integration Flow
+
+| Step | What We Do                    | What You’ll See                         |
+|-----:|-------------------------------|-----------------------------------------|
+| 1    | Configure integration         | Credentials and mappings applied        |
+| 2    | Validate API connectivity     | Successful system communication         |
+| 3    | Test ticket lifecycle         | Create, update, close test tickets      |
+| 4    | Confirm production readiness  | Approval to go live                     |
+
+### Timeline
+
+**3–5 business days** from receipt of credentials and mappings. Most integrations complete in under one week.
+
+---
+
+## Quick Checklist
+
+| ☐ | Item                              | Owner                |
+|---|-----------------------------------|----------------------|
+| ☐ | ServiceNow instance URL           | IT team              |
+| ☐ | Dedicated API user credentials    | IT team              |
+| ☐ | Add “Site Manager” channel value  | ServiceNow admin     |
+| ☐ | Category & Subcategory values     | IT team              |
+| ☐ | Status names and integer IDs      | IT team              |
+| ☐ | Store/Location field details      | IT team              |
+
+---
+
+## Support
+
+Questions or clarifications? Contact your **iEnterprise account team**. We are happy to review this live and walk through the setup together.
+
+---
+
+**Confidential | iEnterprise by Streamline Digital**
