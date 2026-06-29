@@ -28,8 +28,8 @@ Allowlist the following Fully Qualified Domain Names (FQDNs) for outbound HTTPS 
 
 | Endpoint (FQDN) | Port | Purpose |
 |-----------------|------|---------|
-| ralphlauren.ienterprise.com | 443 | Production environment |
-| ralphlauren.staging.ienterprise.info | 443 | Staging / UAT environment |
+| `<company>.ienterprise.com` | 443 | Production environment |
+| `<company>.staging.ienterprise.info` | 443 | Staging / UAT environment |
 | sitemanager.blob.core.windows.net | 443 | Azure Blob Storage for static assets |
 
 **Protocol:** HTTPS (TLS 1.2 or higher)  
@@ -70,8 +70,8 @@ Run the following tests from a corporate-network-connected machine:
 
 | Test | Expected Result |
 |-----|-----------------|
-| Browse to https://ralphlauren.ienterprise.com | Page loads successfully |
-| Browse to https://ralphlauren.staging.ienterprise.info | Page loads successfully |
+| Browse to `https://<company>.ienterprise.com` | Page loads successfully |
+| Browse to `https://<company>.staging.ienterprise.info` | Page loads successfully |
 | nslookup sitemanager.blob.core.windows.net | Resolves to valid Azure IP |
 
 If a test fails, review firewall or proxy logs for blocked requests.
