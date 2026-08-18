@@ -17,6 +17,7 @@ Each guide is written in Markdown so it renders directly in your browser — no 
 
 - [Cisco Meraki Integration Guide](ienterprise_Meraki_Integration_Guide.md) — network visibility across your mobile ecosystem.
 - [Microsoft Intune Integration Guide](ienterprise_Intune_Integration_Guide.md) — device, app, and compliance data via Microsoft Graph.
+- [Omnissa Integration Guide](ienterprise_Omnissa_Integration_Guide.md) — device management via Workspace ONE UEM (formerly VMware Workspace ONE / AirWatch).
 - [ServiceNow Integration Guide](ienterprise_ServiceNow_Integration_Guide.md) — native ticketing from Site Manager.
 
 ---
